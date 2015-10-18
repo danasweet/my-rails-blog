@@ -1,0 +1,12 @@
+<h1><a href="/">master of meaningless musings</a></h1>
+
+<%= link_to 'new blog post', new_post_path %>
+
+<% @posts.reverse.each do |post| %>
+  <h2><%= link_to post.title, post_path(post) %></h2>
+  <p><%= post.text %></p>
+  <p class="button"><%= link_to 'edit', edit_post_path(post) %></p>
+  <p class="button"><%= link_to 'delete', post_path(post),
+                method: :delete,
+                data: { confirm: "are you sure you wanna do that?" } %></p>
+<% end %>

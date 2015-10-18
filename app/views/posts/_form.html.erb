@@ -1,0 +1,28 @@
+<%= form_for @post do |p| %>
+
+  <% if @post.errors.any? %>
+    <div id="error_msg">
+      <h2>
+        <%= pluralize(@post.errors.count, "error") %>
+        occurred and we couldn't save your post:
+      </h2>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= p.text_field :title, placeholder: 'title'%>
+  </p>
+
+  <p>
+    <%= p.text_area :text, placeholder: 'body' %>
+  </p>
+
+  <p>
+    <%= p.submit %>
+  </p>
+<% end %>

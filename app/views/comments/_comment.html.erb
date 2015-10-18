@@ -1,0 +1,16 @@
+<div class="comment-list">
+  <p>
+    by:
+    <%= comment.name %>
+  </p>
+  <p>on <%= comment.created_at.to_formatted_s(:long) %></p>
+  <p>
+    comment:
+    <%= comment.comment %>
+  </p>
+  <p>
+    <%= link_to 'delete', [comment.post, comment],
+                        method: :delete,
+                        data: { confirm: 'sure you wanna do that?' } %>
+  </p>
+</div>
